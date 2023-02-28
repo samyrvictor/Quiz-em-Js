@@ -13,6 +13,7 @@ let pergunta   = document.querySelector('#pergunta')
 let a = document.querySelector('#a')
 let b = document.querySelector('#b')
 let c = document.querySelector('#c')
+let d = document.querySelector('#d')
 
 // article com a class questoes
 let articleQuestoes = document.querySelector('.questoes')
@@ -25,6 +26,7 @@ const q0 = {
     alternativaA : "Alternativa A",
     alternativaB : "Alternativa B",
     alternativaC : "Alternativa C",
+    alternativaD : "Alternativa D",
     correta      : "0",
 }
 
@@ -34,6 +36,7 @@ const q1 = {
     alternativaA : "Sul",
     alternativaB : "Leste",
     alternativaC : "Norte",
+    alternativaD : "Oeste",
     correta      : "Norte",
 }
 
@@ -43,6 +46,7 @@ const q2 = {
     alternativaA : "Oeste",
     alternativaB : "Sul",
     alternativaC : "Norte",
+    alternativaD : "Oeste",
     correta      : "Sul",
 }
 
@@ -52,6 +56,7 @@ const q3 = {
     alternativaA : "Sul",
     alternativaB : "Leste",
     alternativaC : "Oeste",
+    alternativaD : "Norte",
     correta      : "Leste",
 }
 
@@ -61,6 +66,7 @@ const q4 = {
     alternativaA : "Norte",
     alternativaB : "Leste",
     alternativaC : "Oeste",
+    alternativaD : "Sul",
     correta      : "Oeste",
 }
 
@@ -70,6 +76,7 @@ const q5 = {
     alternativaA : "África",
     alternativaB : "Europa",
     alternativaC : "América",
+    alternativaD : "América-Sul",
     correta      : "América",
 }
 
@@ -91,11 +98,13 @@ pergunta.textContent   = q1.pergunta
 a.textContent = q1.alternativaA
 b.textContent = q1.alternativaB
 c.textContent = q1.alternativaC
+d.textContent = q1.alternativaD
 
 // CONFIGURAR O VALUE INICIAL DA 1a QUESTAO COMPLETA
 a.setAttribute('value', '1A')
 b.setAttribute('value', '1B')
 c.setAttribute('value', '1C')
+c.setAttribute('value', '1D')
 
 // PARA MONTAR AS PROXIMAS QUESTOES
 function proximaQuestao(nQuestao) {
@@ -105,9 +114,11 @@ function proximaQuestao(nQuestao) {
     a.textContent = questoes[nQuestao].alternativaA
     b.textContent = questoes[nQuestao].alternativaB
     c.textContent = questoes[nQuestao].alternativaC
+    d.textContent = questoes[nQuestao].alternativaD
     a.setAttribute('value', nQuestao+'A')
     b.setAttribute('value', nQuestao+'B')
     c.setAttribute('value', nQuestao+'C')
+    d.setAttribute('value', nQuestao+'D')
 }
 
 function bloquearAlternativas() {
@@ -151,7 +162,7 @@ function verificarSeAcertou(nQuestao, resposta) {
 
     setTimeout(function() {
         //respostaEsta.textContent = '...'
-        proxima = numeroDaQuestao+1
+        proxima = numeroDaQuestao + 1
 
         if(proxima > totalDeQuestoes) {
             console.log('Fim do Jogo!')
